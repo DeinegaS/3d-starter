@@ -30,12 +30,18 @@ function SceneInner({ simplified }) {
   // We capture scroll inside House already; here we just use a fixed ref
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 1.5, 6]} fov={45} />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 8, 3]} intensity={1.2} castShadow={false} />
+      <PerspectiveCamera makeDefault position={[5, 2.6, 7]} fov={38} />
+      <ambientLight intensity={0.35} />
+      <directionalLight
+        position={[6, 10, 4]}
+        intensity={1.4}
+        color='#fff3e0'
+        castShadow={false}
+      />
+      <directionalLight position={[-5, 4, -3]} intensity={0.35} color='#7aa4d8' />
       <PulsingLight scrollOffset={scrollOffsetRef} />
       <Suspense fallback={null}>
-        <Environment preset='city' />
+        <Environment preset='sunset' background={false} />
         <House simplified={simplified} />
       </Suspense>
       {!simplified && (
